@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Ecommerce App",
+  title: "GN Pet",
   description: "A simple ecommerce application",
 };
 
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Toaster position="top-right" reverseOrder={false}/>
         <SiteHeader />
         {children}
       </body>

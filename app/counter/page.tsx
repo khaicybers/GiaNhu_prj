@@ -7,8 +7,7 @@ import useCounterStore from "@/store/counterStore";
 
 export default function CounterPage() {
   // const [count, setCount] = useState(0);
-  const count = useCounterStore((state) => state.count);
-
+  const {count,increment,decrement,reset} = useCounterStore((state) => state);
   // const increment = () => setCount((prev) => prev + 1);
   // const decrement = () => setCount((prev) => prev - 1);
   // const reset = () => setCount(0);
@@ -22,18 +21,17 @@ export default function CounterPage() {
         <div className="flex flex-col items-center">
           <div className="text-9xl font-bold text-gray-700 mb-8">{count}</div>
           <div className="flex space-x-4">
-            <Button
+            <Button onClick={decrement}
               className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-4 px-8 rounded-full text-2xl transition-colors duration-200"
             >
               -
             </Button>
-            <Button 
-              className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-4 px-8 rounded-full text-2xl transition-colors duration-200"
+            <Button onClick={increment} className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-4 px-8 rounded-full text-2xl transition-colors duration-200"
             >
               +
             </Button>
           </div>
-          <Button
+          <Button onClick={reset}
             className="mt-6 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full text-xl transition-colors duration-200"
           >
             Reset
