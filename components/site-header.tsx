@@ -27,7 +27,7 @@ export function SiteHeader() {
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="text-2xl font-bold text-gray-800">
-              EShop
+              GNhu Pet
             </Link>
           </div>
           <div className="ml-4 flex items-center space-x-4">
