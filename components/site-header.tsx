@@ -1,3 +1,6 @@
+"use client"
+
+import usePetStore from "@/store/petStore";
 import Link from "next/link";
 import { ShoppingCart, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,7 +23,7 @@ const user = {
 
 export function SiteHeader() {
   const isLoggedIn = false;
-
+  const pets = usePetStore((state) => state.pets);
   return (
     <nav className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +37,7 @@ export function SiteHeader() {
             <Link href="/cart" className="relative">
               <ShoppingCart className="h-6 w-6 text-gray-600" />
               <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
-                3
+                {pets.length}
               </span>
             </Link>
             <Link href="/counter">Counter</Link>

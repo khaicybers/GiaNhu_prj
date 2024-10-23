@@ -21,27 +21,6 @@ interface PetSate {
 
 const usePetStore = create<PetSate>((set,get) => ({
     pets: [
-        {
-            id: 1,
-            title: "Product 1",
-            price: 19.99,
-            quantity: 2,
-            image: "/images/red.jpeg?height=80&width=80",
-          },
-          {
-            id: 2,
-            title: "Product 2",
-            price: 29.99,
-            quantity: 1,
-            image: "/images/gray.jpeg?height=80&width=80",
-          },
-          {
-            id: 3,
-            title: "Product 3",
-            price: 39.99,
-            quantity: 3,
-            image: "/images/black.jpeg?height=80&width=80",
-          },
     ],
     addPet: (product) => {
         set((state)=> {
