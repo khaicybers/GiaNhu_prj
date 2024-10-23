@@ -40,7 +40,7 @@ export function SiteHeader() {
                 {pets.reduce((sum , item) => sum + item.quantity, 0)}
               </span>
             </Link>
-            <Link href="/counter">Counter</Link>
+            {/* <Link href="/counter">Counter</Link> */}
             {isLoggedIn ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
