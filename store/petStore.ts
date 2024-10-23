@@ -47,34 +47,27 @@ const usePetStore = create<PetSate>((set,get) => ({
         set((state)=> {
             const existingProduct = state.pets.find((item) => item.id === product.id)
             if (existingProduct) {
-                toast.error("Giỏ hàng đặt quá số lượng")
+                toast.error("Giỏ hàng đặt quá số lượng");
                 return {
-                    pets: state.pets.map((item) =>
-                        item.id === product.id
-                            ? { ...item, quantity: item.quantity + 1 }
-                            : item
-                    ),
+                        pets: state.pets,
+                    };
+                }else {
+                    toast.success("Thêm 1 bé nhỏ thành công"); 
+                    return {
+                         pets:[
+                             ...get().pets,
+                                 {
+                                     quantity:1,
+                                     id: product.id,
+                                     title: product.title,
+                                     price: product.price,
+                                     image: product.images[0],
+                                 },
+                             ]
+                         
+                         }
                 }
-            }
-
-           return {
-                pets:[
-                    ...get().pets,
-                        {
-                            quantity:1,
-                            id: product.id,
-                            title: product.title,
-                            price: product.price,
-                            image: product.images[0],
-                        },
-                    ]
-                
-    
-                }
-        });
-        toast.success("Thêm 1 bé nhỏ thành công")  
+        })
     }
-        
-}));
-
+}))
 export default usePetStore
