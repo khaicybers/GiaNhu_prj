@@ -15,7 +15,8 @@ interface PetItem {
 
 interface PetSate {
     pets: PetItem[];
-    addPet: (product:Product) => void
+    addPet: (product:Product) => void;
+    removePet: (id: number) => void;
     
 }
 
@@ -47,6 +48,14 @@ const usePetStore = create<PetSate>((set,get) => ({
                          }
                 }
         })
-    }
-}))
+    },
+    removePet: (id) => {
+        set((state) => {
+            const filteredPets = state.pets.filter((pet) => pet.id !== id)
+            return {
+                pets: filteredPets,
+            };
+        });
+    },
+}));
 export default usePetStore

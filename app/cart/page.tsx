@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import usePetStore from "@/store/petStore";
 
 export default function Cart() {
-  const { pets } = usePetStore((state) => state);
+  const { pets, removePet } = usePetStore((state) => state);
 
   const subtotal = pets.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -47,7 +47,7 @@ export default function Cart() {
                     </Button>
                   </div>
                 </div>
-                <Button
+                <Button onClick={() => removePet(item.id)}
                   variant="destructive"
                   size="sm"
                   className="ml-4 bg-red-600 hover:bg-red-700 text-white"
