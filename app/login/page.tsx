@@ -27,9 +27,8 @@ export default function LoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const loginData: LoginData = { email, password };
-    console.log("Login Data:", loginData);
-    // Here you would typically send this data to your authentication service
-    // For now, we'll just log it and redirect to the home page
+// tao user object
+// toi buoc login 
     router.push("/");
   };
 

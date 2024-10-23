@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import usePetStore from "@/store/petStore";
 
 export default function Cart() {
-  const { pets, removePet } = usePetStore((state) => state);
+  const { pets, removePet, updateQuantity } = usePetStore((state) => state);
 
   const subtotal = pets.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -16,7 +16,7 @@ export default function Cart() {
     <div className="min-h-screen bg-gray-50">
       <main className="max-w-7xl mx-auto py-8 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
-          Giỏ Hàng: ({pets.length}) bé
+          Giỏ Hàng: ({pets.reduce((sum , i) => sum + i.quantity, 0)}) bé
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-6">
@@ -38,11 +38,11 @@ export default function Cart() {
                   </h2>
                   <p className="text-gray-600">${item.price.toFixed(2)}</p>
                   <div className="flex items-center mt-3 space-x-2">
-                    <Button variant="outline" size="sm" className="px-3">
+                    <Button onClick={() => updateQuantity("decrement", item.id)} variant="outline" size="sm" className="px-3">
                       -
                     </Button>
                     <span className="mx-2 font-medium text-lg">{item.quantity}</span>
-                    <Button variant="outline" size="sm" className="px-3">
+                    <Button onClick={() => updateQuantity("increment", item.id)} variant="outline" size="sm" className="px-3">
                       +
                     </Button>
                   </div>

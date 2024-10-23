@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Link } from 'lucide-react'
 
 interface User {
   name: string
@@ -61,7 +62,9 @@ export default function UserProfile() {
             <p className="text-center">You need to log in to view your profile.</p>
           </CardContent>
           <CardFooter className="flex justify-center">
-            <Button onClick={handleLogin}>Log In</Button>
+            <Button >
+              <Link href={'/login'}></Link>
+            </Button>
           </CardFooter>
         </Card>
       </div>
