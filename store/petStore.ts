@@ -38,7 +38,7 @@ const usePetStore = create<PetSate>()(
                             id: product.id,
                             title: product.title,
                             price: product.price,
-                            image: product.images[0],
+                            image: product.images?.[0] || 'https://via.placeholder.com/150',
                         }
                     ]
                 });

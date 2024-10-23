@@ -1,3 +1,4 @@
+
 import { Product } from "@/types/types";
 
 export async function getProducts() {
@@ -8,6 +9,7 @@ export async function getProducts() {
         headers: {
           "Content-Type": "application/json",
         },
+        cache: "no-store", // Tắt caching
       }
     );
 
