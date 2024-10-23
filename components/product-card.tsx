@@ -8,13 +8,20 @@ export function ProductCard({ product }: { product: Product }) {
   const addPet = usePetStore((state) => state.addPet);
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    {product.images && product.images.length > 0 ? (
       <img
         src={product.images[0]}
         alt={product.title}
         width={300}
         height={200}
-        className="w-full h-48 object-cover"
       />
+    ) : (
+      <div className="w-[300px] h-[200px] flex items-center justify-center bg-gray-200">
+        <span>Image not available</span>
+      </div>
+    )}
+  </div>
       <div className="p-4">
         <h2 className="text-lg font-semibold text-gray-800 mb-2">
           {product.title}
